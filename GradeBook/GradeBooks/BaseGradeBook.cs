@@ -108,22 +108,25 @@ namespace GradeBook.GradeBooks
 
         public double GetGPA(char letterGrade, StudentType studentType)
         {
-            int GPA = 0;
-            if (this.IsWeighted == true && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
-                GPA++;
+            var GPA = 0;
+
             switch (letterGrade)
             {
                 case 'A':
-                    return GPA + 4;
+                    GPA = 4;
+                    break;
                 case 'B':
-                    return GPA + 3;
+                    GPA = 3;
+                    break;
                 case 'C':
-                    return GPA + 2;
+                    GPA = 2;
+                    break;
                 case 'D':
-                    return GPA + 1;
-                case 'F':
-                    return GPA + 0;
+                    GPA = 1;
+                    break;
             }
+            if (this.IsWeighted == true && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
+                GPA++;
             return GPA;
         }
 
