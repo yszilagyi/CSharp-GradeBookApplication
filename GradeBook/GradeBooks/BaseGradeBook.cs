@@ -109,10 +109,8 @@ namespace GradeBook.GradeBooks
         public double GetGPA(char letterGrade, StudentType studentType)
         {
             int GPA = 0;
-            if (this.IsWeighted && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
-            {
+            if (this.IsWeighted == true && (studentType.Equals("Honors") || studentType.Equals("DualEnrolled")))
                 GPA++;
-            }
             switch (letterGrade)
             {
                 case 'A':
